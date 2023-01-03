@@ -1,3 +1,17 @@
+<?php
+$error = '';
+if(isset($_POST['login']))
+{
+    session_start();
+    $username = $_POST['username'];
+    $password = $_POST['pwd'];
+    // location of username and passwords.
+    $userlist = 'C:/private/hashed.csv';
+    // location to redirect on success
+    $redirect = 'http://localhost/curso4/unidad11/menu.php';
+    require_once '../includes/authenticate.php';
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
