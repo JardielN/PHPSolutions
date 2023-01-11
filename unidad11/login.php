@@ -24,7 +24,9 @@ if (isset($_POST['login'])) {
 if ($error) {
     echo "<p>$error</p>";
 }
-?>
+elseif (isset($_GET['expired'])) { ?>
+    <p>Your session has expired. Please Log In again.</p>
+<?php } ?>
 <h1>Log In User</h1>
 <form method="post" action="login.php">
     <p>

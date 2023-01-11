@@ -1,11 +1,4 @@
-<?php
-session_start();
-// if session variable not set, redirect to login page
-if (!isset($_SESSION['authenticated'])) {
-    header('Location: http://localhost/curso4/unidad11/login.php');
-    exit;
-}
-?>
+<?php require '../includes/session_timeout.php'; ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -16,5 +9,8 @@ if (!isset($_SESSION['authenticated'])) {
 <body>
 <h1>Restricted area</h1>
 <p><a href="secretpage.php">Go to another secret page</a> </p>
+<?php include '../includes/logout.php';?>
 </body>
 </html>
+
+
