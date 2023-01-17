@@ -1,3 +1,11 @@
+<?php
+// set required fields
+$required = ['city', 'country'];
+$firstPage = 'multiple_01.php';
+$nextPage = 'multiple_04.php';
+$submit = 'next';
+require_once '../includes/multiform.php';
+?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -6,6 +14,16 @@
 </head>
 
 <body>
+<?php if (isset($missing)) { ?>
+    <p> Please fix the following required fields:</p>
+    <ul>
+        <?php
+        foreach ($missing as $item) {
+            echo "<li>$item</li>";
+        }
+        ?>
+    </ul>
+<?php } ?>
 <form method="post" action="multiple_03.php">
     <p>
         <label for="address">Address:</label>
@@ -19,6 +37,7 @@
         <label for="country">Country:</label>
         <select name="country" id="country">
             <option value="" selected>Please Select</option>
+            <option value="Mexico">Mexico</option>
             <option value="Canada">Canada</option>
             <option value="France">France</option>
             <option value="Germany">Germany</option>

@@ -1,8 +1,9 @@
 <?php
-if(isset($_POST['next'])){
-    // Set a variable to control access to other pages
+if (isset($_POST['next'])) {
+    session_start();
+    // set a variable to control access to other pages
     $_SESSION['formStarted'] = true;
-    // Set required fields
+    // set required fields
     $required = 'first_name';
     $firstPage = 'multiple_01.php';
     $nextPage = 'multiple_02.php';
@@ -18,6 +19,16 @@ if(isset($_POST['next'])){
 </head>
 
 <body>
+<?php if (isset($missing)) { ?>
+    <p> Please fix the following required fields:</p>
+    <ul>
+        <?php
+        foreach ($missing as $item) {
+            echo "<li>$item</li>";
+        }
+        ?>
+    </ul>
+<?php } ?>
 <form method="post" action="multiple_01.php">
     <p>
         <label for="first_name">First name:</label>
